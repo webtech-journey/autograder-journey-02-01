@@ -13,7 +13,7 @@ def overwrite_report_in_repo(repo,file_path="relatorio.md", new_content=""):
         # Encode the updated content in base64
 
         # Commit the new content to the repository (either overwrite or create new)
-        commit_message = "Overwrite relatorio.md with new grading report"
+        commit_message = "Criando relatório..."
         if file_sha:
             repo.update_file(file_path, commit_message, new_content, file_sha)
         else:

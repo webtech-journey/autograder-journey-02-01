@@ -13,8 +13,8 @@ args = parser.parse_args()
 repo_name = os.getenv("GITHUB_REPOSITORY")
 github_token = args.token  # Use the token argument from argparse
 author = os.getenv("GITHUB_ACTOR")
-print(f"Repo->{repo_name}")
-results = run_grading("webtech-journey", repo_name)
+org = repo_name.split('/')[0]
+results = run_grading(org, repo_name)
 
 
 feedback = report_generator.create_feedback(results)
