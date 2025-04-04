@@ -18,11 +18,11 @@ results = run_grading("webtech-journey", repo_name)
 
 
 feedback = report_generator.create_feedback(results)
+report_md = report_generator.generate_markdown_report_pt(author,feedback,results)
 
 g = Github(github_token)
 repo = g.get_repo(repo_name)
 
-report_generator.overwrite_report_in_readme(author, feedback, results)
-overwrite_report_in_repo(repo,new_content=feedback)
+overwrite_report_in_repo(repo,new_content=report_md)
 
 notify_classroom(sum([25 if result else 0 for result in results]), github_token)
