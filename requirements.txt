@@ -1,0 +1,2 @@
+PyGithub
+aiohttp==3.8.2

@@ -1,0 +1,6 @@
+name: "HTML/CSS/JS Autograder"
+author: "Webtech Network"
+description: "An autograding tool for GitHub Classroom that evaluates students' HTML, CSS, and JavaScript projects."
+runs:
+  using: docker
+  image: "Dockerfile"  # The Docker image containing the autograder
