@@ -10,10 +10,11 @@ parser = argparse.ArgumentParser(description="Process token argument.")
 parser.add_argument("--token", type=str, required=True, help="GitHub token")
 args = parser.parse_args()
 
-repo_name = os.getenv("GITHUB_REPOSITORY")
+repo = os.getenv("GITHUB_REPOSITORY").split('/')
 github_token = args.token  # Use the token argument from argparse
 author = os.getenv("GITHUB_ACTOR")
-org = repo_name.split('/')[0]
+org = repo[0]
+repo_name = repo[1]
 results = run_grading(org, repo_name)
 
 
