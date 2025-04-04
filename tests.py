@@ -1,5 +1,5 @@
 import requests
-
+import base64
 def check_main_branch(repo_owner, repo_name):
     url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/branches/main"
     response = requests.get(url)
@@ -11,12 +11,12 @@ def check_at_least_one_commit(repo_owner, repo_name):
     return len(response.json()) > 0
 
 def check_resume_txt_exists(repo_owner, repo_name):
-    url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/contents/resume.txt"
+    url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/contents/resumo.txt"
     response = requests.get(url)
     return response.status_code == 200
 
 def check_resume_txt_lines(repo_owner, repo_name):
-    url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/contents/resume.txt"
+    url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/contents/resumo.txt"
     response = requests.get(url)
     if response.status_code == 200:
         file_content = response.json()['content']
@@ -40,5 +40,3 @@ def run_grading(repo_owner, repo_name):
         results.append(False)
     
     return results
-
-
