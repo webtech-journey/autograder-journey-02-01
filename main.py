@@ -10,11 +10,11 @@ parser = argparse.ArgumentParser(description="Process token argument.")
 parser.add_argument("--token", type=str, required=True, help="GitHub token")
 args = parser.parse_args()
 
-repo = os.getenv("GITHUB_REPOSITORY").split('/')
+repo = os.getenv("GITHUB_REPOSITORY")
 github_token = args.token  # Use the token argument from argparse
 author = os.getenv("GITHUB_ACTOR")
-org = repo[0]
-repo_name = repo[1]
+org = repo.split('/')[0]
+repo_name = repo.split('/')[1]
 results = run_grading(org, repo_name)
 
 
@@ -22,7 +22,7 @@ feedback = report_generator.create_feedback(results)
 report_md = report_generator.generate_markdown_report_pt(author,feedback,results)
 
 g = Github(github_token)
-repo = g.get_repo(repo_name)
+repo = g.get_repo(repo)
 
 overwrite_report_in_repo(repo,new_content=report_md)
 
