@@ -50,7 +50,7 @@ Continue com o bom trabalho! Foque nas áreas mencionadas acima e você terá um
 
     return report_markdown
 
-def overwrite_report_in_readme(student_name, feedback, test_results, readme_file="README.md"):
+def overwrite_report_in_readme(student_name, feedback, test_results, readme_file="relatorio.md"):
     # Generate the markdown report in Portuguese
     markdown_report = generate_markdown_report_pt(student_name, feedback, test_results)
 
