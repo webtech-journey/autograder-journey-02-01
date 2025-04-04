@@ -69,8 +69,3 @@ def create_feedback(test_results):
 | Existência do Resume.txt  | {25 if test_results[2] else 0}     | {pass_or_fail(test_results[2])} |
 | Conteúdo do Resume.txt    | {25 if test_results[3] else 0}     | {pass_or_fail(test_results[3])} |
 '''
-
-# Example usage
-test_results = [True, True, True, True]  # List of booleans indicating which checks passed or failed
-feedback = create_feedback(test_results)
-overwrite_report_in_readme("Arthur", feedback, test_results)

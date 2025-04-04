@@ -1,6 +1,14 @@
 name: "HTML/CSS/JS Autograder"
 author: "Webtech Network"
 description: "An autograding tool for GitHub Classroom that evaluates students' HTML, CSS, and JavaScript projects."
+inputs:
+  token:
+      description: >
+        GitHub token used to check repository content and provide feedback. By default, 
+        this uses the repository token provided by GitHub Actions. You can customize this
+        by replacing this token with a user token which has write-access to your repository. 
+        Note that the token will be accessible to all repository collaborators.
+      default: ${{ github.token }}
 runs:
   using: docker
   image: "Dockerfile"  # The Docker image containing the autograder
