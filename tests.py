@@ -26,22 +26,19 @@ def check_resume_txt_lines(repo_owner, repo_name):
 
 def run_grading(repo_owner, repo_name):
     total_points = 0
-
+    results = []
     # Check for main branch
-    if check_main_branch(repo_owner, repo_name):
-        total_points += 25
-
+    results.append(check_main_branch(repo_owner, repo_name))
     # Check for at least one commit
-    if check_at_least_one_commit(repo_owner, repo_name):
-        total_points += 25
+    results.append(check_at_least_one_commit(repo_owner, repo_name))
 
     # Check for resume.txt
-    if check_resume_txt_exists(repo_owner, repo_name):
-        total_points += 25
-        # Check if resume.txt has at least 3 lines
-        if check_resume_txt_lines(repo_owner, repo_name):
-            total_points += 25
+    results.append(check_resume_txt_exists(repo_owner, repo_name))
+    if results[2]:
+        results.append(check_resume_txt_lines(repo_owner,repo_name))
+    else:
+        results.append(False)
     
-    return total_points
+    return results
 
 
