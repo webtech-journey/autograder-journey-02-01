@@ -11,4 +11,7 @@ inputs:
       default: ${{ github.token }}
 runs:
   using: docker
-  image: "Dockerfile"  # The Docker image containing the autograder
+  image: "Dockerfile" 
+   # The Docker image containing the autograder
+  args:
+    - ${{ inputs.token }}
