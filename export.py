@@ -42,7 +42,6 @@ def notify_classroom(final_score,token):
         return
     # Create a summary for the final grade
     text = f"Final Score: {format(final_score,'.2f')}/100"
-    print(text)
     # Update the check run with the final score
     check_run.edit(
         name="Autograding",
