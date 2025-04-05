@@ -15,13 +15,13 @@ def check_resume_txt_exists(repo_owner, repo_name):
     response = requests.get(url)
     return response.status_code == 200
 
-def check_resume_txt_lines(repo_owner, repo_name):
+def check_resume_txt_words(repo_owner, repo_name):
     url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/contents/resumo.txt"
     response = requests.get(url)
     if response.status_code == 200:
         file_content = response.json()['content']
         decoded_content = base64.b64decode(file_content).decode('utf-8')
-        return len(decoded_content.splitlines()) >= 3
+        return len(decoded_content.split()) >= 50
     return False
 
 def run_grading(repo_owner, repo_name):
@@ -35,7 +35,7 @@ def run_grading(repo_owner, repo_name):
     # Check for resume.txt
     results.append(check_resume_txt_exists(repo_owner, repo_name))
     if results[2]:
-        results.append(check_resume_txt_lines(repo_owner,repo_name))
+        results.append(check_resume_txt_words(repo_owner,repo_name))
     else:
         results.append(False)
     

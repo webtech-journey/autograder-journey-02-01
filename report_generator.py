@@ -19,7 +19,7 @@ def generate_markdown_report_pt(student_name, feedback, test_results):
     if not test_results[2]:  # Existência do Resumo.txt failed
         suggestions.append("- **Existência do resumo.txt**: Certifique-se de que o arquivo `resumo.txt` foi adicionado na raiz do diretório e contém conteúdo significativo.")
     if not test_results[3]:  # Conteúdo do Resumo.txt failed
-        suggestions.append("- **Conteúdo do Resumo**: Garanta que o `resumo.txt` contenha pelo menos três linhas com informações relevantes.")
+        suggestions.append("- **Conteúdo do Resumo**: Garanta que o `resumo.txt` contenha pelo menos 50 palavras com informações relevantes.")
 
     # Construct the markdown report
     if all(test_results):  # If all checks passed
