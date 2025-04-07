@@ -25,6 +25,8 @@ def check_resume_txt_words(repo_owner, repo_name):
     return False
 
 def run_grading(repo_owner, repo_name):
+    print("Repo owner->{}".format(repo_owner))
+    print("Repo name->{}".format(repo_name))
     total_points = 0
     results = []
     # Check for main branch
